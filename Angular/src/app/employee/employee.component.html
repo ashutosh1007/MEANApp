@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="s5">
+                        <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+                            <div class="row">
+                                <div class="col s12">
+                                    <label>Name:</label>
+                                    <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col s12">
+                                    <label>Position:</label>
+                                    <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" required>  
+                                   
+                                </div>        
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col s12">
+                                    <label>Office:</label>
+                                    <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" required>  
+                                </div>        
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <label>Salary:</label>
+                                    <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" required>  
+                                    
+                                </div>        
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+                                    <button class="btn btn-custom right" type="submit">Submit</button> 
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="s7">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                </tr>
+                                <tr *ngFor="let emp of employeeService.employees">
+                                    <td>{{emp.name}}</td>
+                                    <td>{{emp.position}}</td>
+                                    <td>{{emp.office}}</td>
+                                    <td>
+                                        <button class="btn" type="button" (click)="onEdit(emp)">Edit</button>
+                                        
+                                        <button class="btn" type="button" (click)="onDelete(emp._id, employeeForm)">Delete</button>
+                                        
+                                    </td> 
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
