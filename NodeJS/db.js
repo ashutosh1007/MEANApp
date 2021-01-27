@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/CRUD_DB', 
+mongoose.connect('mongodb://localhost:27017/StudentDB', 
 {useNewUrlParser: true, 
 useUnifiedTopology: true}, (err) => {
     if(!err)
